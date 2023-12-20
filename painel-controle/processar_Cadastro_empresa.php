@@ -62,8 +62,8 @@ if (isset($_POST['confirmar'])) {
     $queryCliente->execute();
 
     // Após a inserção bem-sucedida dos dados
-    echo '<script>window.location.href = "index.php";</script>';
-        exit();
+    header("Location: index.php");
+    exit();
 } else {
     echo "<script>alert(Erro ao processar o formulário.)</script>";
 }
