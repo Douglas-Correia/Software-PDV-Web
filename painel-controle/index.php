@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,6 +37,18 @@
         </div>
     </section>
 
+    <?php
+    // Conectar ao banco de dados
+    $conn = new PDO("mysql:host=localhost; dbname=banco_pdv", "root", "");
+
+    // Consulta para obter os dados da tabela
+    $query = $conn->query("SELECT * FROM dados_empresa");
+
+    // Verifica se há dados na tabela
+    if ($query->rowCount() > 0) {
+        $resultados = $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+    ?>
     <section class="show-customers">
         <div class="clients-data">
             <table>
@@ -50,27 +63,24 @@
                     <th>Ação</th>
                 </thead>
 
-                <tbody>
-                    <td>1</td>
-                    <td>18/12/2023 19:05:10</td>
-                    <td>R D FREIOS E PECAS LTDA</td>
-                    <td>07.578.882/0001-16</td>
-                    <td>MS</td>
-                    <td>(067) 99999-5555</td>
-                    <td>teste@teste.com</td>
-                    <td><i class="fa-solid fa-lock-open" style="background-color: green; color:white"></i><i class="fa-solid fa-user-pen" style="background-color: orange;"></i></td>
-                </tbody>
-
-                <tbody>
-                    <td>1</td>
-                    <td>18/12/2023 19:05:10</td>
-                    <td>R D FREIOS E PECAS LTDA</td>
-                    <td>07.578.882/0001-16</td>
-                    <td>MS</td>
-                    <td>(067) 99999-5555</td>
-                    <td>teste@teste.com</td>
-                    <td><i class="fa-solid fa-lock-open" style="background-color: green; color:white"></i><i class="fa-solid fa-user-pen" style="background-color: orange;"></i></td>
-                </tbody>
+                <?php
+                foreach ($resultados as $row) {
+                ?>
+                    <tbody>
+                        <td><?= $row['id']; ?></td>
+                        <td><?= $row['data']; ?></td>
+                        <td><?= $row['razao_social']; ?></td>
+                        <td><?= $row['cnpj']; ?></td>
+                        <td><?= $row['uf']; ?></td>
+                        <td><?= $row['telefone']; ?></td>
+                        <td><?= $row['email']; ?></td>
+                        <td><i class="fa-solid fa-lock-open" style="background-color: green; color:white"></i>
+                            <i class="fa-solid fa-user-pen" style="background-color: orange;"></i>
+                        </td>
+                    </tbody>
+                <?php
+                }
+                ?>
             </table>
         </div>
     </section>
@@ -81,7 +91,7 @@
             <h2>Cadastro de Empresa</h2>
         </header>
 
-        <form id="cadastroForm" action="processar_cadastro_empresa.php" method="post">
+        <form id="cadastroForm" action="processar_cadastro_empresa.php" method="post" enctype="multipart/form-data">
             <!-- CNPJ RAZÃO SOCIAL -->
             <div class="two-input">
                 <div class="single-input single-input-icon">
@@ -177,7 +187,7 @@
             </span>
             <section class="dados-acesso-plataforma">
                 <div class="logo-empresa">
-                    <img src="../img/icons/Logo-caixa.ico" alt="">
+                    <img id="preview-imagem" src="" alt="">
                 </div>
 
                 <!-- DADOS USUARIO -->
@@ -192,7 +202,7 @@
                     </div>
 
                     <div class="btn">
-                        <input type="submit" value="&#10004; Adicionar Logo Empresa">
+                        <input type="file" name="logo" id="logo" accept="*" onchange="exibirImagem()">
                     </div>
                 </div><!-- DADOS USUARIO -->
             </section>
@@ -203,28 +213,23 @@
         </form>
     </section>
 
-    <div id="success-message" class="success-message">
-        <div class="message-container">
-            <p>Dados cadastrados com sucesso!</p>
-            <button class="btn-msg" onclick="returnToDashboard()">OK</button>
+    <?php
+    // Verifica se a variável de sessão está presente
+    if (isset($_SESSION['cadastro_sucesso']) && $_SESSION['cadastro_sucesso']) {
+        // Exibe a mensagem de sucesso com o novo estilo
+    ?>
+        <div id="success-message" class="success-message">
+            <div class="message-container">
+                <p>Dados cadastrados com sucesso!</p>
+                <button class="btn-msg" onclick="returnToDashboard()">OK</button>
+            </div>
         </div>
-    </div>
+    <?php
+        // Limpa a variável de sessão para não exibir a mensagem novamente
+        unset($_SESSION['cadastro_sucesso']);
+    }
+    ?>
 
-    <script>
-        // Cancela o envio do formulário
-        document.getElementById('cancelar').addEventListener('click', function(event) {
-            event.preventDefault();
-            // Ocultar o formulário
-            document.getElementById('cadastrar-empresa').style.display = 'none';
-        });
-
-
-        // Função para a mensagem de cadastro com sucesso
-        function showSuccessMessage() {
-            const successMessage = document.getElementById('success-message');
-            successMessage.style.display = 'block';
-        }
-    </script>
     <script src="./js/main.js"></script>
 </body>
 

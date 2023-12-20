@@ -62,8 +62,12 @@ if (isset($_POST['confirmar'])) {
     $queryCliente->execute();
 
     // Após a inserção bem-sucedida dos dados
-    header("Location: index.php");
+    session_start();
+    $_SESSION['cadastro_sucesso'] = true;
+    echo "<script>window.location.href = 'index.php';</script>";
     exit();
+
+
 } else {
     echo "<script>alert(Erro ao processar o formulário.)</script>";
 }
