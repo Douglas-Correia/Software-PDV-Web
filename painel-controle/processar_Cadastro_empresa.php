@@ -19,6 +19,13 @@ if (isset($_POST['confirmar'])) {
     $bairro = strip_tags($_POST['bairro']);
     $cidade = strip_tags($_POST['cidade']);
 
+    // Upload do arquivo de logo
+   $nomeArquivo = $_FILES['logo']['name'];
+   $caminhoTemporario = $_FILES['logo']['tmp_name'];
+   $caminhoDestino = "C:/Users/{$nomeArquivo}";
+
+   move_uploaded_file($caminhoTemporario, $caminhoDestino);
+
     // Dados de acesso do cliente
     $usuario = strip_tags($_POST['usuario']);
     $senha = password_hash(strip_tags($_POST['senha']), PASSWORD_DEFAULT); // Hash da senha
@@ -28,8 +35,8 @@ if (isset($_POST['confirmar'])) {
 
     // Inserir dados da empresa com declarações preparadas
     $queryEmpresa = $conn->prepare("
-        INSERT INTO dados_empresa (cnpj, razao_social, nome_fantasia, inscricao_estadual, contato, inscricao_municipal, telefone, email, cep, logradouro, numero, complemento, uf, bairro, cidade)
-        VALUES (:cnpj, :razaoSocial, :fantasia, :inscricaoEstadual, :contato, :inscricaoMunicipal, :telefone, :email, :cep, :logradouro, :numeroStreet, :complemento, :uf, :bairro, :cidade)
+        INSERT INTO dados_empresa (cnpj, razao_social, nome_fantasia, inscricao_estadual, contato, inscricao_municipal, telefone, email, cep, logradouro, numero, complemento, uf, bairro, cidade, logo_path)
+        VALUES (:cnpj, :razaoSocial, :fantasia, :inscricaoEstadual, :contato, :inscricaoMunicipal, :telefone, :email, :cep, :logradouro, :numeroStreet, :complemento, :uf, :bairro, :cidade, :logo_path)
     ");
 
     $queryEmpresa->bindParam(':cnpj', $cnpj);
@@ -47,6 +54,9 @@ if (isset($_POST['confirmar'])) {
     $queryEmpresa->bindParam(':uf', $uf);
     $queryEmpresa->bindParam(':bairro', $bairro);
     $queryEmpresa->bindParam(':cidade', $cidade);
+    // Caminho da logo
+    $logoPath = "C:/Users/{$nomeArquivo}";
+    $queryEmpresa->bindParam(':logo_path', $logoPath);
 
     $queryEmpresa->execute();
 
