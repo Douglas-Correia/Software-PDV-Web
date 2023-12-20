@@ -1,11 +1,13 @@
 const btnCadastrar = document.querySelector("#btn-cadastrar");
 const cadastrarEmpresa = document.querySelector("#cadastrar-empresa");
-const btnCancelar = document.querySelector("#cancelar");
 
+// Abri o cadastro de empresa
 btnCadastrar.addEventListener('click', () =>{
     cadastrarEmpresa.style.display = 'block';
 })
 
-btnCancelar.addEventListener('click', () =>{
-    cadastrarEmpresa.style.display = 'none';
-})
+// Retornando ao painel de controle
+function returnToDashboard() {
+    const closeMessage = document.getElementById('success-message');
+    closeMessage.style.display = 'none';
+}

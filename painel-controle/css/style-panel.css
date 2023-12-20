@@ -205,7 +205,7 @@ form .two-input{
     padding: 4.8px 6px;
 }
 
-.single-input #cpf{
+.single-input #cnpj{
     padding: 4px 10px;
     width: 200px;
 }
@@ -386,4 +386,36 @@ form .cancel-confirm #confirmar{
     cursor: pointer;
     color: #fff;
     margin-right: 15px;
+}
+
+/*Estilo do box de mensagem de sucesso de cadastro*/
+/* Adicione este estilo ao seu arquivo de estilo CSS ou inclua diretamente no cabeçalho da página */
+.success-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.message-container {
+    text-align: center;
+}
+
+/* Estilo adicional para o botão */
+.btn-msg {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
 }
