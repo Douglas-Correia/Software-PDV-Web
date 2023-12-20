@@ -1,0 +1,168 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body{
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.container{
+    width: 750px;
+    max-width: 100%; /* Here, we make it responsive */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+}
+
+.section-img{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.section-img h2{
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.section-login{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.section-login h2{
+    text-align: center;
+    color: #fff;
+}
+
+form > .single-input{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.single-input span{
+    position: absolute;
+    left: 30px;
+    top: 8px;
+    font-size: 20px;
+}
+
+.single-input input{
+    padding: 10px 35px;
+    margin-left: 20px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+}
+
+.single-input p{
+    text-align: center;
+    margin-top: 5px;
+    margin-left: 10px;
+    color: green;
+}
+
+form .check{
+    margin-top: 5px;
+   text-align: start;
+}
+
+form input[type=checkbox]{
+    width: 30px;
+    height: 20px;
+    margin-left: 20px;
+}
+
+form .check label{
+    margin-left: 5px;
+    color: #fff;
+}
+
+form input[type=submit]{
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 10px;
+    color: #fff;
+    font-size: 20px;
+    background-color: #1792D5;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form input[type=submit]:hover{
+    background-color: #126c9c;
+}
+
+form .contact{
+    margin-top: 20px;
+    width: 100%;
+    color: #fff;
+}
+
+form .contact a{
+    text-decoration: none;
+    color: green;
+}
+
+/* Estilos para dispositivos móveis com largura de tela até 767 pixels */
+@media screen and (max-width: 767px) {
+    .container {
+        flex-direction: column; /* Altera o layout para coluna em vez de linha */
+        align-items: center; /* Centraliza os itens na horizontal */
+        text-align: center; /* Centraliza o texto */
+    }
+
+    .section-img {
+        margin-bottom: 20px; /* Adiciona espaço abaixo da seção de imagem */
+    }
+
+    .section-img h2{
+        margin-top: 20px;
+    }
+
+    .section-img div > img{
+        height: 10%;
+        width: 80%;
+    }
+
+    .section-login {
+        width: 100%; /* Garante que a seção de login ocupe 100% da largura */
+    }
+
+    .single-input {
+        width: 100%; /* Garante que a largura do campo de entrada seja 100% */
+    }
+
+    .single-input span{
+        margin-left: 30px;
+    }
+
+    .single-input input{
+        width: 80%;
+        margin-left: 50px;
+    }
+
+    .section-login input[type=submit]{
+        width: 80%;
+        margin-left: 10px;
+    }
+
+    .check {
+        text-align: left; /* Alinha o texto à esquerda para o checkbox e a label */
+        margin-left: 30px;
+    }
+}

@@ -1,0 +1,389 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body{
+    height: 100%;
+}
+
+.header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #0d1238;
+}
+
+.header h2{
+    color: rgb(216, 216, 17);
+}
+
+.logo{
+    margin-left: 10px;
+}
+
+.header button{
+    width: 70px;
+    height: 30px;
+    margin-right: 10px;
+    background-color: #a10e18;
+    color: #fff;
+    border: none;
+    border-radius: 2px;
+}
+
+.section-add-clients{
+    padding: 10px;
+    width: 100%;
+}
+
+.section-add-clients #add-client{
+    padding: 7px 10px;
+    background-color: #0d1238;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.section-add-clients #add-client:hover{
+    background-color: #161f5f;
+}
+
+.section-add-clients #my-data{
+    border: none;
+    background-color: #fff;
+    padding: 7px 10px;
+    color: #4548f7;
+    cursor: pointer;
+}
+
+.section-add-clients #my-data:hover{
+    color: #25278f;
+}
+
+.register-company{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 10px;
+    background-color: rgba(241, 239, 239, 0.4);
+    border: 1px solid #a5a5a5;
+    padding: 12px;
+}
+
+.register-company div{
+    align-items: center;
+    display: flex;
+}
+
+.register-company div i{
+    color: #161f5f;
+    font-size: 20px;
+}
+
+.register-company div p{
+    margin-left: 10px;
+    color: #161f5f;
+}
+
+.register-company button{
+    padding: 6px 10px;
+    cursor: pointer;
+    background-color: orange;
+    color: rgb(39, 39, 39);
+    font-weight: 300;
+    font-size: 16px;
+    border: none;
+    border-radius: 2px;
+}
+
+.show-customers{
+    height: 100vh;
+    margin: 0 10px;
+    border: 1px solid #a5a5a5;
+}
+
+/*ESTILO DO CONTAINER DOS USUÁRIOS | TABELA */
+
+.show-customers {
+    padding: 5px 20px;
+}
+
+.clients-data {
+    overflow-x: auto; /* Adiciona barra de rolagem horizontal se necessário */
+}
+
+table {
+    margin-top: 5px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead th, tbody td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+thead th {
+    background-color: #07071c;
+    color: white;
+}
+
+tbody td {
+    color: black;
+}
+
+.clients-data i {
+    margin-right: 10px;
+    font-size: 18px;
+    padding: 3px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+/*Estilo de cadastro de usuários*/
+.cadastrar-empresa{
+    display: none;
+    position: absolute;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -52%);
+    width: 800px;
+    max-width: 100%;
+    height: 700px;
+    max-height: 100%;
+    z-index: 999;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.cadastrar-empresa .header-cad-empresa{
+    margin-top: -1px;
+    display: flex;
+    background-color: #07071c;
+    color: #fff;
+}
+
+.header-cad-empresa i{
+    margin: 10px 10px;
+    font-size: 22px;
+}
+
+.cadastrar-empresa h2{
+    margin: 10px 10px;
+}
+
+form input{
+    border: 1px solid #aaa;
+}
+
+form .two-input{
+    display: flex;
+}
+
+.two-input .single-input{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 10px;
+}
+
+.single-input-icon{
+    position: relative;
+}
+
+.single-input i{
+    position: absolute;
+    top: 18.8px;
+    background-color: #4548f7;
+    right: 0px;
+    padding: 4.8px 6px;
+}
+
+.single-input #cpf{
+    padding: 4px 10px;
+    width: 200px;
+}
+
+.single-input #razao-social{
+    padding: 4px 10px;
+    width: 550px;
+}
+
+.single-input label{
+    color: black;
+}
+
+.single-input #fantasia{
+    padding: 4px 10px;
+    width: 550px;
+}
+
+.single-input #inscricao-estadual{
+    padding: 4px 10px;
+    width: 200px;
+}
+
+.single-input #contato{
+    padding: 4px 10px;
+    width: 550px;
+}
+
+.single-input #inscricao-municipal{
+    padding: 4px 10px;
+    width: 200px;
+}
+
+.single-input #telefone{
+    padding: 4px 10px;
+    width: 200px;
+}
+
+.single-input #email{
+    padding: 4px 10px;
+    width: 550px;
+}
+
+.single-input #cep{
+    padding: 4px 10px;
+    width: 200px;
+}
+
+.single-input #logradouro{
+    padding: 4px 10px;
+    width: 550px;
+}
+
+.single-input #numero{
+    padding: 4px 10px;
+    width: 200px;
+}
+
+.single-input #complemento{
+    padding: 4px 10px;
+    width: 550px;
+}
+
+.single-input #uf{
+    padding: 4px 10px;
+    width: 130px;
+}
+
+.single-input #bairro{
+    padding: 4px 10px;
+    width: 300px;
+}
+
+.single-input #cidade{
+    padding: 4px 10px;
+    width: 300px;
+}
+
+.h3-dados-plataforma{
+    display: flex;
+    margin: 5px 5px;
+    padding: 5px;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+.h3-dados-plataforma i{
+    margin-left: 10px;
+    margin-top: 3px;
+}
+
+.h3-dados-plataforma h3{
+    margin-left: 5px;
+}
+
+.dados-acesso-plataforma {
+    display: flex;
+    color: black;
+    background-color: #fff;
+    margin-top: -5px;
+    margin: 0 5px;
+    padding: 5px;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.dados-acesso-plataforma .logo-empresa {
+    width: 30%;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+}
+
+.dados-acesso-plataforma .logo-empresa img{
+    width: 50%;
+    margin: 2px 15px;
+}
+
+.dados-acesso-plataforma .dados-usuario {
+    width: 50%;
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.dados-acesso-plataforma .dados-usuario .usuarios{
+    position: relative;
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.dados-acesso-plataforma .dados-usuario .usuarios span{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+.dados-acesso-plataforma .dados-usuario .usuarios input{
+    width: 100%;
+    height: 30px;
+    padding-left: 30px;
+}
+
+.dados-acesso-plataforma .dados-usuario .btn input {
+    width: auto; /* Restaura a largura automática para o botão */
+    padding: 6px 40px;
+    background-color: #07071C;
+    color: #fff;
+    cursor: pointer;
+}
+
+form .cancel-confirm{
+    text-align: end;
+    margin-left: 0.8%;
+    width: 98.5%;
+    padding: 10px 0;
+    border: 1px solid #ccc;
+}
+
+form .cancel-confirm #cancelar{
+    padding: 7px 25px;
+    width: 130px;
+    background-color: #a10e18;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+}
+
+form .cancel-confirm #confirmar{
+    padding: 6px 25px;
+    width: 130px;
+    background-color: rgb(4, 139, 4);
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    margin-right: 15px;
+}
