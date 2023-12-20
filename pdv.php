@@ -140,7 +140,7 @@ if (!isset($_SESSION['usuario_cliente'])) {
                     <button>MOVIMENTO(F10)</button>
                     <button>CANCELAR(F9)</button>
                     <button>SALVAR(F7)</button>
-                    <button>FINALIZAR(F6)</button>
+                    <button id="finalizar-sessao">FINALIZAR(F6)</button>
                 </div>
         </div><!-- CONTAINER DATA PRODUTOS -->
     </div><!-- CONTAINER -->

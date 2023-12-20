@@ -1,5 +1,5 @@
-// Sair do painel de controle
-document.getElementById('sair-pdv').addEventListener('click', () => {
+// Sair do painel de venda
+document.getElementById('finalizar-sessao').addEventListener('click', () => {
     // Fazer uma solicitação ao servidor para remover a sessão
     fetch('painel-controle/logout.php', {
         method: 'POST',
