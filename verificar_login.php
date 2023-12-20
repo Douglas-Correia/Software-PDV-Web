@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 if(isset($_POST['to-enter-login'])){
     $user = strip_tags($_POST['user']);
     $password = strip_tags($_POST['password']);
@@ -19,15 +19,18 @@ if(isset($_POST['to-enter-login'])){
 
         // Redirecionar com base no tipo de usuário
         if($tipo == 'administrador'){
+            $_SESSION['usuario_administrador'] = True;
             header("Location: painel-controle/index.php");
             exit();
         }
         else if($tipo == 'cliente'){
+            $_SESSION['usuario_cliente'] = True;
             header("Location: pdv.php");
             exit();
         } else{
             echo "<script>alert('Tipo de usuário não informado!')</script>";
             header("Location: index.php");
+            exit();
         }
     }
     else{

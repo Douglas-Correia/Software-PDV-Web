@@ -1,3 +1,13 @@
+<?php 
+session_start();
+
+if(!isset($_SESSION['usuario_cliente'])){
+    header("Location: index.php");
+    exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +16,8 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <button id="sair-pdv">Sair</button>
+
+    <script src="js/main.js"></script>
 </body>
 </html>

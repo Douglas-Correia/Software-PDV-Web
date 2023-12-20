@@ -19,6 +19,25 @@ function returnToDashboard() {
     closeMessage.style.display = 'none';
 }
 
+// Sair do painel de controle
+document.getElementById('sair-painel').addEventListener('click', () => {
+    // Fazer uma solicitação ao servidor para remover a sessão
+    fetch('./logout.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Redirecionar para a página de login ou realizar outras ações, se necessário
+        window.location.href = "../index.php";
+    })
+    .catch(error => {
+        console.error('Erro ao fazer logout:', error);
+    });
+});
+
 function exibirImagem() {
     const inputLogo = document.getElementById('logo');
     const previewImagem = document.getElementById('preview-imagem');

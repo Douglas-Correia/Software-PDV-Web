@@ -1,3 +1,17 @@
+<?php 
+session_start(); 
+
+if(isset($_SESSION['usuario_administrador'])){
+    header("Location: painel-controle/index.php");
+    exit(); 
+}
+
+if(isset($_SESSION['usuario_cliente'])){
+    header("Location: pdv.php");
+    exit(); 
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

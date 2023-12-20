@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php session_start(); 
+
+if(!isset($_SESSION['usuario_administrador'])){
+    header("Location: ../index.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +25,7 @@
 
         <h2>PAINEL ADMINISTRATIVO</h2>
 
-        <button type="submit"><i class="fa-solid fa-power-off"></i> Sair</button>
+        <button id="sair-painel" type="submit" style="cursor: pointer;"><i class="fa-solid fa-power-off"></i> Sair</button>
     </header>
 
     <section class="section-add-clients">
