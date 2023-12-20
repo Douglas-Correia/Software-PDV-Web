@@ -16,18 +16,19 @@ if (isset($_POST['to-enter-login'])) {
     if ($result) {
         // Usuário encontrado, agora verifica a senha
         $hashDaSenhaArmazenado = $result['password'];
-
+        // Senha correta
+        $tipo = $result['tipo'];
+        // Redirecionar com base no tipo de usuário
+        if ($tipo == 'administrador') {
+            $_SESSION['usuario_administrador'] = true;
+            header("Location: painel-controle/index.php");
+            exit();
+        }
         // Use password_verify para comparar a senha fornecida com o hash armazenado
         if (password_verify($password, $hashDaSenhaArmazenado)) {
-            // Senha correta
-            $tipo = $result['tipo'];
+            
 
-            // Redirecionar com base no tipo de usuário
-            if ($tipo == 'administrador') {
-                $_SESSION['usuario_administrador'] = true;
-                header("Location: painel-controle/index.php");
-                exit();
-            } elseif ($tipo == 'cliente') {
+            if ($tipo == 'cliente') {
                 $_SESSION['usuario_cliente'] = true;
                 header("Location: pdv.php");
                 exit();
