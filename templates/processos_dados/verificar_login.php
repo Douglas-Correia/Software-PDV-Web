@@ -13,15 +13,21 @@ if (isset($_POST['to-enter-login'])) {
     $query->execute([$user]);
     $result = $query->fetch(PDO::FETCH_ASSOC);
 
-    if ($result) {
+    // Obtendo o usuário admin sem criptográfia.
+    $queryAdmin = $conn->prepare("SELECT user, password, tipo FROM usuarios WHERE user = ? AND password = ?");
+    $queryAdmin->execute([$user, $password]);
+    $resultAdmin = $queryAdmin->fetch(PDO::FETCH_ASSOC);
+
+    if ($result || $resultAdmin) {
         // Usuário encontrado, agora verifica a senha
         $hashDaSenhaArmazenado = $result['password'];
         // Senha correta
         $tipo = $result['tipo'];
+        $tipoAdmin = $resultAdmin['tipo'];
         // Redirecionar com base no tipo de usuário
-        if ($tipo == 'administrador') {
+        if ($tipoAdmin == 'administrador') {
             $_SESSION['usuario_administrador'] = true;
-            header("Location: ./painel-controle/index.php");
+            header("Location: ../../painel-controle/index.php");
             exit();
         }
         // Use password_verify para comparar a senha fornecida com o hash armazenado
@@ -30,11 +36,11 @@ if (isset($_POST['to-enter-login'])) {
 
             if ($tipo == 'cliente') {
                 $_SESSION['usuario_cliente'] = true;
-                header("Location: pdv.php");
+                header("Location: ../pdv.php");
                 exit();
             } else {
                 echo "<script>alert('Tipo de usuário não informado!')</script>";
-                header("Location: ./index.php");
+                header("Location: ../../index.php");
                 exit();
             }
         } else {
@@ -43,7 +49,7 @@ if (isset($_POST['to-enter-login'])) {
                     document.getElementById("p-user").innerText = "Usuário ou senha incorretos";
                     document.getElementById("p-password").innerText = "Usuário ou senha incorretos";
                   </script>';
-            header("Location: index.php");
+            header("Location: ../../index.php");
             exit();
         }
     } else {
@@ -52,7 +58,7 @@ if (isset($_POST['to-enter-login'])) {
                 document.getElementById("p-user").innerText = "Usuário ou senha incorretos";
                 document.getElementById("p-password").innerText = "Usuário ou senha incorretos";
               </script>';
-        header("Location: ./index.php");
+        header("Location: ../../index.php");
         exit();
     }
 }

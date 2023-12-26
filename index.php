@@ -35,7 +35,7 @@ if(isset($_SESSION['usuario_cliente'])){
 
         <seciton class="section-login">
             <h2>EFETUAR LOGIN</h2>
-            <form action="templates/verificar_login.php" method="post">
+            <form action="templates/processos_dados/verificar_login.php" method="post">
                 <div class="single-input">
                     <span><i class="fa-solid fa-user"></i></span>
                     <input type="text" name="user" id="user" placeholder="Entre com Usuário" require>

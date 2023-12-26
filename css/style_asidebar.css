@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+}
+
+.container-menu{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 15%;
+    min-width: 100px;
+    background-color: #242C37;
+}
+
+.container-menu .active{
+    background-color: #434343;
+    color: #ccc;
+}
+
+.container-menu > button{
+    padding: 15px 20px;
+    background-color: #242C37;
+    color: #ccc;
+    font-size: 18px;
+    text-align: start;
+    border: none;
+    border-bottom: 1px solid rgba(100, 100, 100, 0.2);
+    cursor: pointer;
+}
+
+.container-menu button i{
+    margin-right: 10px;
+}
+
+.container-menu > div > button{
+    width: 100%;
+    margin-top: 30%;
+    padding: 15px 20px;
+    background-color: #242C37;
+    color: #ccc;
+    font-size: 18px;
+    text-align: start;
+    border: none;
+    border-top: 1px solid rgba(100, 100, 100, 0.2);
+    border-bottom: 1px solid rgba(100, 100, 100, 0.2);
+    cursor: pointer;
+}

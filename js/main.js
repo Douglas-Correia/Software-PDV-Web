@@ -1,7 +1,7 @@
 // Sair do painel de venda
 document.getElementById('finalizar-sessao').addEventListener('click', () => {
     // Fazer uma solicitação ao servidor para remover a sessão
-    fetch('painel-controle/logout.php', {
+    fetch('../painel-controle/logout.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -10,7 +10,7 @@ document.getElementById('finalizar-sessao').addEventListener('click', () => {
     .then(response => response.json())
     .then(data => {
         // Redirecionar para a página de login ou realizar outras ações, se necessário
-        window.location.href = "index.php";
+        window.location.href = "../index.php";
     })
     .catch(error => {
         console.error('Erro ao fazer logout:', error);
