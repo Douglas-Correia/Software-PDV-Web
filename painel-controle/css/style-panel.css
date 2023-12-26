@@ -389,7 +389,6 @@ form .cancel-confirm #confirmar{
 }
 
 /*Estilo do box de mensagem de sucesso de cadastro*/
-/* Adicione este estilo ao seu arquivo de estilo CSS ou inclua diretamente no cabeçalho da página */
 .success-message {
     position: fixed;
     top: 50%;

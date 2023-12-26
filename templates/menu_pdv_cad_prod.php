@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +32,7 @@
                 <h2>Cadastro de Produtos</h2>
             </header>
 
-            <form id="cadastroProd" action="processar_cadastro_produtos.php" method="post">
+            <form id="cadastroProd" action="processos_dados/processar_cadastro_produtos.php" method="post">
                 <!-- CÓDIGO E DESCRIÇÃO DO PRODUTO -->
                 <div class="two-input">
                     <div class="single-input single-input-icon">
@@ -91,14 +93,35 @@
                     </div>
                 </div>
 
+                <div class="two-input">
+                    <div class="single-input">
+                        <label for="preco-venda">Estoque</label>
+                        <input type="text" name="estoque" id="estoque" required>
+                    </div>
+                </div>
+
                 <div class="cancel-confirm">
                     <button type="button" id="cancelar">Cancelar</button>
-                    <button type="submit" id="confirmar" name="confirmar">Confirmar</button>
+                    <button type="submit" id="confirmar" name="confirmar_cad_prod">Confirmar</button>
                 </div>
             </form>
         </section>
     </div>
 
+    <?php 
+        if(isset($_SESSION['produto_cadastrado']) && $_SESSION['produto_cadastrado']){    
+    ?>
+        <div id="success-message" class="success-message">
+            <div class="message-container">
+                <p>Produtos cadastrados com sucesso!</p>
+                <button class="btn-msg" id="btn-produto-cad-ok">OK</button>
+            </div>
+        </div>   
+    <?php 
+        // Limpa a variável de sessão para não exibir a mensagem novamente
+        unset($_SESSION['produto_cadastrado']);
+        }
+    ?>
     <script src="../js/manipulacao_btn_menu.js"></script>
 </body>
 

@@ -9,7 +9,7 @@ if (isset($_POST['to-enter-login'])) {
     $conn = new PDO("mysql:host=localhost; dbname=banco_pdv", "root", "");
 
     // Obtendo o hash da senha armazenado no banco de dados para o usuário correspondente
-    $query = $conn->prepare("SELECT user, password, tipo FROM usuarios WHERE user = ?");
+    $query = $conn->prepare("SELECT user, password, tipo, id_empresa FROM usuarios WHERE user = ?");
     $query->execute([$user]);
     $result = $query->fetch(PDO::FETCH_ASSOC);
 
@@ -32,10 +32,9 @@ if (isset($_POST['to-enter-login'])) {
         }
         // Use password_verify para comparar a senha fornecida com o hash armazenado
         if (password_verify($password, $hashDaSenhaArmazenado)) {
-            
-
             if ($tipo == 'cliente') {
                 $_SESSION['usuario_cliente'] = true;
+                $_SESSION['id_cliente'] = $result['id_empresa'];
                 header("Location: ../pdv.php");
                 exit();
             } else {

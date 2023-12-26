@@ -36,3 +36,8 @@ document.querySelectorAll('.container-menu button').forEach((button, key) => {
         }
     });
 });
+
+document.querySelector('#btn-produto-cad-ok').addEventListener('click', () =>{
+    const closeMessage = document.getElementById('success-message');
+    closeMessage.style.display = 'none';
+})

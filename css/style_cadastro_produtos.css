@@ -89,3 +89,34 @@ form .cancel-confirm #confirmar {
         width: 85%;
     }
 }
+
+/*Estilo do box de mensagem de sucesso de cadastro*/
+.success-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: block;
+}
+
+.message-container {
+    text-align: center;
+}
+
+/* Estilo adicional para o botão */
+.btn-msg {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
