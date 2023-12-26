@@ -16,7 +16,7 @@ if (!isset($_SESSION['usuario_cliente'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/style_pdv.css">
+    <link rel="stylesheet" href="../css/style_pdv.css">
 </head>
 
 <body>
@@ -133,20 +133,20 @@ if (!isset($_SESSION['usuario_cliente'])) {
             </div><!-- CONTAINER TABLE -->
 
             <div class="tot-itens-tot-valor">
-                <h4>Itens: 000</h4><h4>Subtotal: 0,00</h4>
+                <h4>Itens: 000</h4>
+                <h4>Subtotal: 0,00</h4>
             </div>
             <div class="btn-comands">
-                    <button>MENU(F1)</button>
-                    <button>MOVIMENTO(F10)</button>
-                    <button>CANCELAR(F9)</button>
-                    <button>SALVAR(F7)</button>
-                    <button id="finalizar-sessao">FINALIZAR(F6)</button>
-                </div>
+                <button id="menu">MENU(F1)</button>
+                <button id="movimento">MOVIMENTO(F10)</button>
+                <button id="cancelar_compra">CANCELAR(F9)</button>
+                <button id="salvar_compra_localStorage">SALVAR(F7)</button>
+                <button id="finalizar-sessao">FINALIZAR(F6)</button>
+            </div>
         </div><!-- CONTAINER DATA PRODUTOS -->
     </div><!-- CONTAINER -->
 
-    <!--<button id="sair-pdv">Sair</button>-->
-    <script src="js/main.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 
 </html>

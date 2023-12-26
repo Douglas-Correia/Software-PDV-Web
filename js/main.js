@@ -16,3 +16,8 @@ document.getElementById('finalizar-sessao').addEventListener('click', () => {
         console.error('Erro ao fazer logout:', error);
     });
 });
+
+// Redirecionar para a página de menu e cadastro de produtos
+let = menu = document.getElementById('menu').addEventListener('click', () =>{
+    window.location.href = './menu_pdv_dashboard.php';
+})
